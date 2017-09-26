@@ -13,20 +13,21 @@ Adobe Plugin to scrape AF E-Pubs Metadata
 #### 2. Will not (initially) apply to all forms / pubs (i.e. DD forms)
 
 
-### Good reads: 
-
-> http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_api_reference.pdf Page 548
+### Starting reads: 
 
 Note this script will act like a "plugin" due to running out of the main application folder
-
 > https://acrobatusers.com/tutorials/folder_level_scripts
+
+How we'll get the data from e-pubs
+> http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_api_reference.pdf Page 548
+
+Net.HTTP requires higher priv...
 > https://acrobatusers.com/tutorials/using_trusted_functions
 
-
-Your seach string goes here
+Your GET request will look something like... 
 > http://www.e-publishing.af.mil/#/?view=search&keyword=*********&isObsolete=false&modID=449&tabID=71
 
-Extracting metadata example:
+Extracting metadata from the form:
 > https://forums.adobe.com/thread/2145701 (note "this.metadata" call only seems to work on "new" documents that say (SECURED) when opened as they contain the XMP metadata this is looking for)
 
 Otherwise we *should* be able to view metadata via this.info.*
