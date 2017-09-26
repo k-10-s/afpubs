@@ -19,7 +19,7 @@ Note this script will act like a "plugin" due to running out of the main applica
 > https://acrobatusers.com/tutorials/folder_level_scripts
 
 How we'll get the data from e-pubs
-> http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_api_reference.pdf Page 548
+> http://help.adobe.com/en_US/acrobat/acrobat_dc_sdk/2015/HTMLHelp/#t=Acro12_MasterBook%2FJS_API_AcroJS%2FNet_HTTP_methods.htm
 
 Net.HTTP requires higher priv...
 > https://acrobatusers.com/tutorials/using_trusted_functions
