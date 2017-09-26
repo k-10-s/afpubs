@@ -3,7 +3,7 @@
 Adobe Plugin to scrape AF E-Pubs Metadata 
 
 
-### Project Goal
+### Workflow
 #### 1. User opens AFI / AF Form
 #### 2. Acobat Reader Plugin or javascript checks E-publishing.af.mil for latest form date
 #### 3. Alert user on new version available (and potentially provide direct download link)
