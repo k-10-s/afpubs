@@ -28,14 +28,15 @@ Your GET request will look something like...
 > http://www.e-publishing.af.mil/#/?view=search&keyword=*********&isObsolete=false&modID=449&tabID=71
 
 Extracting metadata from the form:
-> https://forums.adobe.com/thread/2145701 (note "this.metadata" call only seems to work on "new" documents that say (SECURED) when opened as they contain the XMP metadata this is looking for)
+> https://forums.adobe.com/thread/2145701 (note all metadata is only available once the user clicks "enable all features", which may or may not appear depending on the doc source)
 
-Otherwise we *should* be able to view metadata via this.info.*
+We can also pull metadata via:
 
 ```javascript
 this.info.Title
 this.info.Author
 this.info.Subject
+this.info.creationdate
 ```
 
  -or-
