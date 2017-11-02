@@ -13,7 +13,7 @@ iTrustGoogle = app.trustedFunction(
     {
         //app.alert("trust me?");
         //Net.HTTP.request({cVerb:"GET", cURL:"http://google.com"});
-        //app.alert("if you see this, then yess");
+        //app.alert("if you see this, then yes");
 		
 		
 		
@@ -28,6 +28,8 @@ iTrustGoogle = app.trustedFunction(
 		app.alert("Thanks for trying anyway.");
 		else
 		app.alert("You responded, \""+cResponse+"\", to the health " + "question.",3);
+	    
+	    //ignore stuff below here. Dont think it all works 
 		//var myTO = app.setTimeOut("app.alert(\"This should appear after a delay.\") ; app.clearTimeOut(myTO) ;", 5000) ;
 		//var d = app.activeDocs; // get array of open docs
 		// loop throgh the open doc array
