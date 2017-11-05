@@ -3,10 +3,12 @@
 Adobe Plugin to scrape AF E-Pubs Metadata 
 
 
-### Workflow
+### Workflow (Updated 5 Nov)
 #### 1. User opens AFI / AF Form
-#### 2. Acobat Reader Plugin or javascript checks E-publishing.af.mil for latest form date
-#### 3. Alert user on new version available (and potentially provide direct download link)
+#### 2. Button added to toolbar turns red indicating the currently open form has not been checked 
+#### 3. User clicks button, javascript checks E-publishing.af.mil for latest form date
+#### 4. Alert user on new version available, if there is one (and potentially provide direct download link)
+#### 5. Button turns green (probably limited to next reopen of Adobe, if multiple docs are opend at same time not sure if we can "reset" it each time)
 
 ### Scope
 #### 1. Only applies to AFNET boxes (Preloaded with Acobat Pro)
