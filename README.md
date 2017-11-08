@@ -17,6 +17,9 @@ Adobe Plugin to scrape AF E-Pubs Metadata
 
 ### Starting reads: 
 
+Adobe DC (& X, XI) SDK Documentation
+> https://help.adobe.com/en_US/acrobat/acrobat_dc_sdk/2015/HTMLHelp/index.html#t=Acro12_MasterBook%2FIntroduction_Help_TitlePage%2FAbout_This_Help.htm&rhsyns=%20&rhsearch=net.http
+
 Note this script will act like a "plugin" due to running out of the main application folder
 > https://acrobatusers.com/tutorials/folder_level_scripts
 
