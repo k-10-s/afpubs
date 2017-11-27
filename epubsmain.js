@@ -48,7 +48,7 @@ function ePubsCheck()
 	}
 	
 	//Accepted title string
-	var acceptedTitle = (cResponse == null || cResponse == "") ? this.info.title ? cResponse;
+	var acceptedTitle = (cResponse == null || cResponse == "") ? this.info.title : cResponse;
 	
 	//Error checking... 	
 	if(typeof(trusted_ePubsCheck) == "undefined")
