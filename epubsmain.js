@@ -47,6 +47,9 @@ function ePubsCheck()
 		app.alert("You entered " + cResponse,3);
 	}
 	
+	//Accepted title string
+	var acceptedTitle = (cResponse == null || cResponse == "") ? this.info.title ? cResponse;
+	
 	//Error checking... 	
 	if(typeof(trusted_ePubsCheck) == "undefined")
 		app.alert('External support function "trusted_ePubsCheck" not found\n This plugin isnt going to work...',0);
@@ -58,8 +61,7 @@ function ePubsCheck()
 		var webRequestReturn = Net.HTTP.request
 		({
 			cVerb:"GET", 
-			//future cURL: http://www.e-publishing.af.mil/#/?view=search&keyword=*********&isObsolete=false&modID=449&tabID=71
-			cURL:"http://google.com",
+			cURL:"http://www.e-publishing.af.mil/DesktopModules/MVC/EPUBS/EPUB/GetPubsSearchView/?keyword=" + acceptedTitle + "&obsolete=false",
 			oHandler:
 			{
 				response: function(msg, uri, e)
