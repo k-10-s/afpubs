@@ -14,27 +14,19 @@ Adobe Plugin to scrape AF E-Pubs Metadata
 #### 1. Only applies to AFNET boxes (Preloaded with Acobat Pro)
 #### 2. Will not (initially) apply to all forms / pubs (i.e. DD forms)
 
+### TODO List
+- [ ] Generate and embed proper icon stream data
+- [ ] Build web response parser
+- [ ] Build date comparision logic, user notifications
+- [ ] Provide direct download link to updated version (if exists) 
+- [ ] Update button color on sucessful check 
+- [ ] Investiage if possible to programatically add button to "Quick Tools bar" for all users
 
 ### Starting reads: 
-
 Adobe DC (& X, XI) SDK Documentation
 > https://help.adobe.com/en_US/acrobat/acrobat_dc_sdk/2015/HTMLHelp/index.html#t=Acro12_MasterBook%2FIntroduction_Help_TitlePage%2FAbout_This_Help.htm&rhsyns=%20&rhsearch=net.http
+Net.HTTP.Request documentation 
+> http://help.adobe.com/en_US/acrobat/acrobat_dc_sdk/2015/HTMLHelp/#t=Acro12_MasterBook%2FJS_API_AcroJS%2FNet_HTTP_methods.htm
 
 Note this script will act like a "plugin" due to running out of the main application folder
 > https://acrobatusers.com/tutorials/folder_level_scripts
-
-How we'll get the data from e-pubs
-> http://help.adobe.com/en_US/acrobat/acrobat_dc_sdk/2015/HTMLHelp/#t=Acro12_MasterBook%2FJS_API_AcroJS%2FNet_HTTP_methods.htm
-
-Net.HTTP requires higher priv...
-> https://acrobatusers.com/tutorials/using_trusted_functions
-
-Extracting metadata from the form:
->(note all metadata is only available once the user clicks "enable all features", which may or may not appear depending on the doc source)
-
-```javascript
-this.info.Title
-this.info.Author
-this.info.Subject
-this.info.creationdate
-```
