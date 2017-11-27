@@ -40,9 +40,9 @@ function ePubsCheck()
 		nIcon: 2, nType: 2
 	});
 	//3 = No, per SDK docs.
-	if ( selfCheckResponse == 3 )
+	if(selfCheckResponse == 3)
 	{
-		while (cResponse == null || cResponse == "")
+		while(cResponse == null || cResponse == "")
 		{
 			var cResponse = app.response(
 			{
@@ -54,8 +54,10 @@ function ePubsCheck()
 			if (cResponse == null || cResponse == "")
 				app.alert("You didnt enter anything....");
 
-        cResponse = cResponse.replace(/ +/g, ''); 
+        cResponse = cResponse.replace(/ +/g, '');
+
 		}
+
 		app.alert("DEBUG: You entered " + cResponse,3);
 	}
 	//Accepted title string
@@ -66,46 +68,46 @@ function ePubsCheck()
 		app.alert('External support function "trusted_ePubsCheck" not found\n This plugin isnt going to work...',0);
 	else if(app.viewerType == "Reader")
 		app.alert("This checker doesnt work with Adobe Reader... =(\n\nTry Running in Adobe Acrobat Professional (Part of Standard AF SDC)" , 0);
-	else
-	{
+	else {
 		app.alert("DEBUG: CreationDate: " + this.info.creationDate,3);
-    app.alert("DEBUG: Accepeted Title " + acceptedTitle,3);
-		var webRequestReturn = Net.HTTP.request
-		({
+    	app.alert("DEBUG: Accepted Title " + acceptedTitle,3);
+		var webRequestReturn = Net.HTTP.request({
 			cVerb:"GET",
 			cURL:"http://www.e-publishing.af.mil/DesktopModules/MVC/EPUBS/EPUB/GetPubsSearchView/?keyword=" + acceptedTitle + "&obsolete=false",
 			oHandler:
 			{
 				response: function(msg, uri, e)
 				{
-          if(e != undefined && e.error == 404) {app.alert("DEBUG 404 Not Found! Quitting.", 0); return;}
-          else if(e != undefined && e.error != 405) {app.alert("DEBUG Something else nasty happened. Connecion Failed, Quitting.", 0); return;}
-					else
-          {
-              app.alert("DEBUG: Connected", 3);
+        
+			        if(e != undefined && e.error == 404) {
+			     		app.alert("DEBUG 404 Not Found! Quitting.", 0);
+			     		return;
+			     	}
+			        else if(e != undefined && e.error != 405) {
+			        	app.alert("DEBUG Something else nasty happened. Connecion Failed, Quitting.", 0);
+			        	return;
+			        }
+					else {
+			          app.alert("DEBUG: Connected", 3);
 
+			          //Compare logic goes here. Who's good with REGEX?
+			          //***********Good match..**********
+			          global.red = false;
+			          global.green = true;
 
-              //Compare logic goes here. Who's good with REGEX?
-              //***********Good match..**********
-              global.red = false;
-              global.green = true;
-
-
-              //********Bad match, go get the new one!**********
-              app.beep(0);
-              app.launchURL("http://www.e-publishing.af.mil/DesktopModules/MVC/EPUBS/EPUB/GetPubsSearchView/?keyword=" + acceptedTitle + "&obsolete=false");
-
-          }
-
+			          //********Bad match, go get the new one!**********
+			          app.beep(0);
+			          app.launchURL("http://www.e-publishing.af.mil/DesktopModules/MVC/EPUBS/EPUB/GetPubsSearchView/?keyword=" + acceptedTitle + "&obsolete=false");
+		      		}
 				}
 			}
         });
     }
+
 	app.endPriv();
-
 }
-var trusted_ePubsCheck = app.trustedFunction(ePubsCheck);
 
+var trusted_ePubsCheck = app.trustedFunction(ePubsCheck);
 
 //***************Script really starts here....everything else is just a pre-definition**************
 app.addToolButton({
