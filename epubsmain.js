@@ -43,6 +43,8 @@ function ePubsCheck()
 			});
 			if (cResponse == null || cResponse == "")
 				app.alert("You didnt enter anything....");
+
+			cResponse = cResponse.replace(/ +/g, '')
 		}
 		app.alert("You entered " + cResponse,3);
 	}
@@ -54,7 +56,7 @@ function ePubsCheck()
 	if(typeof(trusted_ePubsCheck) == "undefined")
 		app.alert('External support function "trusted_ePubsCheck" not found\n This plugin isnt going to work...',0);
 	else if(app.viewerType == "Reader")
-		app.alert("This checker doesnt work with Adober Reader... =(\n\nTry Running in Adobe Acrobat Professional (Part of Standard AF SDC)" , 0);
+		app.alert("This checker doesnt work with Adobe Reader... =(\n\nTry Running in Adobe Acrobat Professional (Part of Standard AF SDC)" , 0);
 	else
 	{
 		app.alert("CreationDate:\n\n" + this.info.creationDate,3);
