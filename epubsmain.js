@@ -92,11 +92,12 @@ function ePubsCheck() {
 			     		return;
 			     	}
 			        else if(e != undefined && e.error != 405) {
-			        	app.alert("DEBUG Something else nasty happened. Connecion Failed, Quitting.", 0);
+			        	app.alert("DEBUG Something else nasty happened. Connection Failed, Quitting.", 0);
 			        	return;
 			        }
 					else {
 			          	app.alert("DEBUG: Connected", 3);
+			          	app.alert("DEBUG: msg " + msg + "\n" + "uri " + uri, 3);
 
 			        	//Compare logic goes here. Who's good with REGEX?
 				        //***********Good match..**********
@@ -120,17 +121,19 @@ var trusted_ePubsCheck = app.trustedFunction(ePubsCheck);
 /*
 Script really starts here....everything else is just a pre-definition
 */
-app.addToolButton({
-		cName: "epubsred",
-		oIcon: redIcon,
-		cExec: "trusted_ePubsCheck()",
-		cTooltext: "E-Pubs [UNVERIFIED]",
-		cEnable: "event.rc = global.red;",
+app.addToolButton(
+{
+	cName: "epubsred",
+	oIcon: redIcon,
+	cExec: "trusted_ePubsCheck()",
+	cTooltext: "E-Pubs [UNVERIFIED]",
+	cEnable: "event.rc = global.red;",
     cLabel: "Check E-Pubs [UNVERIFIED]",
-		nPos: 0
-	});
+	nPos: 0
+});
 
-  app.addToolButton({
+app.addToolButton(
+{
     cName: "epubsgreen",
     oIcon: greenIcon,
     cExec: "trusted_ePubsCheck()",
@@ -138,4 +141,4 @@ app.addToolButton({
     cEnable: "event.rc = global.green;",
     cLabel: "Recheck E-Pubs [VERIFIED]",
     nPos: 0
-  });
+});
