@@ -33,11 +33,12 @@ var greenIcon = {
 global.red = true;
 global.green = false;
 
-
 //Main Function, called on button click below
 function ePubsCheck() {
 	var cResponse;
 	var selfCheckResponse;
+	var metaDate;
+	var epubsDate;
 
 	app.beginPriv();
 	//Prompt user to make sure document provided title is right. Some docs may not be embedded with it
@@ -78,8 +79,9 @@ function ePubsCheck() {
 	else if (app.viewerType == "Reader")
 		app.alert("This checker doesnt work with Adobe Reader... =(\n\nTry Running in Adobe Acrobat Professional (Part of Standard AF SDC)" , 0);
 	else {
-		app.alert("DEBUG: CreationDate: " + this.info.creationDate,3);
-    	app.alert("DEBUG: Accepted Title " + acceptedTitle,3);
+		metaDate = new Date(this.info["Date (YYYY/MM/DD)"]); 
+		console.println("Debug: Document date" + metaDate);
+		console.println("DEBUG: Accepted Title " + acceptedTitle);
 
 		var webRequestReturn = Net.HTTP.request({
 			cVerb:"GET",
@@ -96,21 +98,27 @@ function ePubsCheck() {
 			        	return;
 			        }
 					else {
-			          	app.alert("DEBUG: Connected", 3);
-			          	app.alert("DEBUG: msg " + msg + "\n" + "uri " + uri, 3);
+			          	console.println("DEBUG: Connected");
+			          	page = util.stringFromStream(msg, "utf-8");
+			          	var date = page.match(/(\d{1,2})[- \/.]([a-zA-Z]{3})[- \/.](\d{4})/);
+						epubsDate = new Date(date[0]);
+						console.println("Debug: epubs date " + epubsDate);
+			          	
+			          	if (epubsDate > metaDate) {
+				        	app.beep(0);
+				        	app.launchURL("http://www.e-publishing.af.mil/DesktopModules/MVC/EPUBS/EPUB/GetPubsSearchView/?keyword=" + acceptedTitle + "&obsolete=false");
+				        	app.launchURL("http://static.e-publishing.af.mil/production/1/af_a1/form/" + acceptedTitle + "/" + acceptedTitle + ".pdf");
 
-			        	//Compare logic goes here. Who's good with REGEX?
-				        //***********Good match..**********
-				        global.red = false;
-				        global.green = true;
-
-				        //********Bad match, go get the new one!**********
-				        app.beep(0);
-				        app.launchURL("http://www.e-publishing.af.mil/DesktopModules/MVC/EPUBS/EPUB/GetPubsSearchView/?keyword=" + acceptedTitle + "&obsolete=false");
+			          	} else{
+			          		app.alert('Your document is up to date!', 3);
+			          		global.red = false;
+				        	global.green = true;
+			          	}				        				        
 		      		}
 				}
 			}
         });
+        
     }
 
 	app.endPriv();
