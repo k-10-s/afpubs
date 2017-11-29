@@ -17,11 +17,11 @@ Adobe Plugin to scrape AF E-Pubs Metadata
 ### TODO List
 - [x] Generate and embed proper icon stream data
 - [ ] Cleanup embeded metadata to build proper search strings (i.e. AFFORM => AF)
-- [ ] Build web response parser (REGEX)
-- [ ] Build date comparision logic, user notifications
+- [x] Build web response parser (REGEX)
+- [x] Build date comparision logic, user notifications
 - [x] Provide direct download link to updated version (if exists) 
 - [x] Update button color on sucessful check 
-- [ ] Investiage if possible to programatically add button to "Quick Tools bar" for all users
+- [ ] Investigate if possible to programatically add button to "Quick Tools bar" for all users
 
 ### Starting reads: 
 Adobe DC (& X, XI) SDK Documentation
