@@ -39,24 +39,27 @@ function ePubsCheck() {
 	var selfCheckResponse;
 	var metaDate;
 	var epubsDate;
+	var acceptedTitle;
 
 	app.beginPriv();
 	//Prompt user to make sure document provided title is right. Some docs may not be embedded with it
+	var title = this.info["Short Title - Prefix"] + this.info["Short Title - Number"];
+	acceptedTitle = (title == null) ? this.info.title : title;
+
 	selfCheckResponse = app.alert(
 	{
-		cMsg: "Self reported title: " + this.info.title + "\n Is this correct?",
+		cMsg: "Self reported title: \n" + title + "\n\n Is this correct?",
 		cTitle: "Version Self Check",
 		nIcon: 2, nType: 2
 	});
+
 	//3 = No, per SDK docs.
-	
 	if(selfCheckResponse == 3) {
 		while(cResponse == null || cResponse == "") {
 			cResponse = app.response(
 			{
 				cQuestion: "Please enter document title, without spaces\nEx: \"afi1-1\" or \"af707\"",
 				cTitle: "Pub Verification",
-				//cDefault: "",
 				cLabel: "Title:"
 			});
 
@@ -70,8 +73,7 @@ function ePubsCheck() {
 		app.alert("DEBUG: You entered " + cResponse,3);
 	}
 
-	//Accepted title string
-	var acceptedTitle = (cResponse == null || cResponse == "") ? this.info.title : cResponse;
+	acceptedTitle = (cResponse == null || cResponse == "") ? title : cResponse;
 
 	//Error checking...
 	if(typeof(trusted_ePubsCheck) == "undefined")
