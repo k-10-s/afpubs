@@ -79,8 +79,15 @@ function ePubsCheck() {
 	else if (app.viewerType == "Reader")
 		app.alert("This checker doesnt work with Adobe Reader... =(\n\nTry Running in Adobe Acrobat Professional (Part of Standard AF SDC)" , 0);
 	else {
-		metaDate = new Date(this.info["Date (YYYY/MM/DD)"]); 
+		/*I'm thinking of leaving this in because it is more accurate. However 
+		*lets also grab the creation date as a fail-over
+		*/
+		metaDate = new Date(this.info["Date (YYYY/MM/DD)"]);
+		if (metaDate == null){
+			metaDate = new Date(this.info.creationDate); 
+		}
 		console.println("Debug: Document date" + metaDate);
+		console.println("Debug: Creation date" + creationDate);
 		console.println("DEBUG: Accepted Title " + acceptedTitle);
 
 		var webRequestReturn = Net.HTTP.request({
