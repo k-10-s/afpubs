@@ -87,7 +87,6 @@ function ePubsCheck() {
 			metaDate = new Date(this.info.creationDate); 
 		}
 		console.println("Debug: Document date" + metaDate);
-		console.println("Debug: Creation date" + creationDate);
 		console.println("DEBUG: Accepted Title " + acceptedTitle);
 
 		var webRequestReturn = Net.HTTP.request({
@@ -106,7 +105,7 @@ function ePubsCheck() {
 			        }
 					else {
 			          	console.println("DEBUG: Connected");
-			          	page = util.stringFromStream(msg, "utf-8");
+			          	var page = util.stringFromStream(msg, "utf-8");
 			          	var date = page.match(/(\d{1,2})[- \/.]([a-zA-Z]{3})[- \/.](\d{4})/);
 						epubsDate = new Date(date[0]);
 						console.println("Debug: epubs date " + epubsDate);
