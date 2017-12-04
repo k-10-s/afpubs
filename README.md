@@ -21,7 +21,7 @@ Adobe Plugin to scrape AF E-Pubs Metadata
 - [x] Build date comparision logic, user notifications
 - [x] Provide direct download link to updated version (if exists) 
 - [x] Update button color on sucessful check 
-- [ ] Investigate if possible to programatically add button to "Quick Tools bar" for all users
+- [x] Investigate if possible to programatically add button to "Quick Tools bar" for all users
 
 ### Starting reads: 
 Adobe DC (& X, XI) SDK Documentation
