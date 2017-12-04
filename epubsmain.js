@@ -84,11 +84,12 @@ function ePubsCheck() {
 		/*I'm thinking of leaving this in because it is more accurate. However 
 		*lets also grab the creation date as a fail-over
 		*/
-		metaDate = new Date(this.info["Date (YYYY/MM/DD)"]);
+		metaDate = util.scand("yyyy/mm/dd", this.info["Date (YYYY/MM/DD)"]);
 		if (metaDate == null){
+			console.println("DEBUG: First date was null, trying option B");
 			metaDate = new Date(this.info.creationDate); 
 		}
-		console.println("Debug: Document date" + metaDate);
+		console.println("DEBUG: Document Date " + metaDate);
 		console.println("DEBUG: Accepted Title " + acceptedTitle);
 
 		var webRequestReturn = Net.HTTP.request({
