@@ -132,7 +132,7 @@ function ePubsCheck() {
 				        	
 
 			          	} else{
-			          		app.alert("Your version: "+ metaDate + "\nE-Pubs Version: " + epubsDate + "\n\nYour document apepars to be up to date!", 3);
+			          		app.alert("Your version: "+ metaDate + "\nE-Pubs Version: " + epubsDate + "\n\nYour document appears to be up to date!", 3);
 			          		global.red = false;
 				        	global.green = true;
 			          	}				        				        
