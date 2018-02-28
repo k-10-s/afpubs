@@ -1,19 +1,3 @@
-# The Publication Adjudication
-
-Adobe Plugin to scrape AF E-Pubs Metadata 
-
-
-### Workflow
-##### 1. User opens AFI / AF Form
-##### 2. Button added to toolbar turns red indicating the currently open form has not been checked 
-##### 3. User clicks button, javascript checks E-publishing.af.mil for latest form date
-##### 4. Alert user on new version available, if there is one provide direct download link
-##### 5. Button turns green (probably limited to next reopen of Adobe, if multiple docs are opend at same time not sure if we can "reset" it each time)
-
-### Scope
-##### 1. Only applies to AFNET boxes (Preloaded with Acobat Pro)
-##### 2. Will not (initially) apply to all forms / pubs (i.e. DD forms)
-
 ### TODO List
 - [x] Generate and embed proper icon stream data
 - [x] Cleanup embeded metadata to build proper search strings (i.e. AFFORM => AF)
@@ -33,3 +17,8 @@ Net.HTTP.Request documentation
 
 Note this script will act like a "plugin" due to running out of the main application folder
 > https://acrobatusers.com/tutorials/folder_level_scripts
+
+
+### Scope
+##### 1. Only applies to AFNET boxes (Preloaded with Acobat Pro)
+##### 2. Will not (initially) apply to all forms / pubs (i.e. DD forms)
