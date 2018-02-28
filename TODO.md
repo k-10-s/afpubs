@@ -1,9 +1,9 @@
-# PublicationAdjudication (Name pending..)
+# The Publication Adjudication
 
 Adobe Plugin to scrape AF E-Pubs Metadata 
 
 
-### Workflow (Updated 27 Nov)
+### Workflow
 ##### 1. User opens AFI / AF Form
 ##### 2. Button added to toolbar turns red indicating the currently open form has not been checked 
 ##### 3. User clicks button, javascript checks E-publishing.af.mil for latest form date
